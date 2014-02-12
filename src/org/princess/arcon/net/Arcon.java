@@ -11,7 +11,7 @@ import java.net.InetAddress;
  * Simple example class for sending rcon commands to an Enemy Territory server.
  * 
  * @author Tessa "Princess"
- * @version 0.2.2, 2/12/2014
+ * @version 0.3.2, 2/12/2014
  * */
 public class Arcon {
 

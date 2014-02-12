@@ -6,10 +6,11 @@
     <string name="connectButton">Connect</string>
     <string name="title_activity_arcon">Arcon</string>
     <string name="sendButton">Send</string>
-
     <string name="serverHint">IP</string>
     <string name="portHint">Port</string>
     <string name="passHint">Rcon Password</string>
-    <string name="mainTitle">Enemy Territory: Arcon</string>
+    <string name="mainTitle">Arcon</string>
     <string name="checkbox">Remember</string>
+    <string name="serverName">serverName</string>
+
 </resources>

@@ -7,14 +7,21 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ArconActivity" >
-
+  <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/editText5"
+        android:text="@string/serverName" />
     <EditText
         android:id="@+id/editText5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/editText4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/textView2"
         android:clickable="false"
         android:editable="false"
         android:ems="10"
@@ -31,6 +38,7 @@
         android:scrollbars="vertical"
         android:selectAllOnFocus="false"
         android:textAlignment="gravity" />
+
     <Button
         android:id="@+id/button2"
         style="?android:attr/buttonStyleSmall"
@@ -53,6 +61,6 @@
         <requestFocus />
     </EditText>
 
-
+  
 
 </RelativeLayout>

@@ -21,7 +21,7 @@ import android.os.Build;
  * ArconActivity
  * 
  * @author Tessa "Princess"
- * @version 0.2.2, 2/12/2014
+ * @version 0.3.2, 2/12/2014
  * 
  * */
 public class ArconActivity extends Activity {
@@ -42,6 +42,8 @@ public class ArconActivity extends Activity {
 		String port = intent.getStringExtra(MainActivity.PORT_INFO);
 		String password = intent.getStringExtra(MainActivity.PASS_INFO);
 
+		TextView serverNameView = (TextView) findViewById(R.id.textView2);
+		serverNameView.setText(String.format("%s:%s", server, port));
 		asock = new Arcon(server, Integer.parseInt(port), password);
 		arec = new ArconReceive(asock.getSocket(),
 				(TextView) findViewById(R.id.editText5));

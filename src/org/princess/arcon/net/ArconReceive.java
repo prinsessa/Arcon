@@ -13,7 +13,7 @@ import android.widget.TextView;
  * Simple example class for receiving information about previous send commands.
  * 
  * @author Tessa "Princess"
- * @version 0.2.2, 2/12/2014
+ * @version 0.3.2, 2/12/2014
  * 
  * */
 public class ArconReceive extends AsyncTask<Void, String, Void> {

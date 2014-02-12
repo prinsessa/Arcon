@@ -20,7 +20,7 @@ import android.widget.Toast;
  * Login Activity
  * 
  * @author Tessa "Princess"
- * @version 0.2.2, 2/12/2014
+ * @version 0.3.2, 2/12/2014
  * 
  * */
 public class MainActivity extends Activity {

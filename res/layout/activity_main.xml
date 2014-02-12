@@ -12,10 +12,8 @@
         android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/serverHint"
         android:inputType="text" >
@@ -27,30 +25,11 @@
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignLeft="@+id/editText3"
         android:layout_below="@+id/editText5"
         android:ems="10"
         android:hint="@string/portHint"
         android:inputType="numberSigned|text" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_below="@+id/editText4"
-        android:ems="10"
-        android:hint="@string/passHint"
-        android:inputType="textPassword" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignParentTop="true"
-        android:text="@string/mainTitle"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/button2"
@@ -58,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/editText4"
         android:layout_below="@+id/editText3"
+        android:layout_marginTop="14dp"
         android:onClick="connectServer"
         android:text="@string/connectButton" />
 
@@ -69,5 +49,26 @@
         android:layout_alignBottom="@+id/button2"
         android:layout_alignLeft="@+id/editText3"
         android:text="@string/checkbox" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/mainTitle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignRight="@+id/editText5"
+        android:layout_below="@+id/editText4"
+        android:ems="10"
+        android:hint="@string/passHint"
+        android:inputType="textPassword" />
 
 </RelativeLayout>
