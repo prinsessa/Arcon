@@ -12,5 +12,6 @@
     <string name="mainTitle">Arcon</string>
     <string name="checkbox">Remember</string>
     <string name="serverName">serverName</string>
+    <string name="gameName">Wolfenstein ET: </string>
 
 </resources>
