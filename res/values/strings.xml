@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Arcon Connect</string>
+    <string name="app_name">Arcon</string>
     <string name="action_settings">Settings</string>
     <string name="connectButton">Connect</string>
     <string name="title_activity_arcon">Arcon</string>

@@ -1,7 +1,10 @@
 package org.princess.arcon;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.princess.arcon.net.Arcon;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -98,30 +101,41 @@ public class MainActivity extends Activity {
 		intent.putExtra(SERVER_INFO, server);
 		intent.putExtra(PORT_INFO, port);
 		intent.putExtra(PASS_INFO, password);
-		
-		Arcon asock = new Arcon(server, Integer.parseInt(port), password);
 
-		if (!validateServer(server, port, password)) {
-			if (!asock.canConnect()) {
+		Arcon asock = null;
+
+		if (validateServer(server, port, password)) {
+			asock = new Arcon(server, Integer.parseInt(port), password);
+			if (asock.canConnect()) {
 				startActivity(intent);
 			} else {
-				Toast.makeText(getApplicationContext(),
-						String.format("Unable to connect to: %s:%s",server,port),
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(
+						getApplicationContext(),
+						String.format("Unable to connect to: %s:%s", server,
+								port), Toast.LENGTH_SHORT).show();
 			}
 		} else {
-			Toast.makeText(getApplicationContext(),
-					String.format("The provided server information doesn't appear to be valid: %s:%s",server,port),
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(
+					getApplicationContext(),
+					String.format(
+							"The provided server information doesn't appear to be valid: %s:%s",
+							server, port), Toast.LENGTH_SHORT).show();
 		}
-		asock.close();
+		if (asock != null) {
+			asock.close();
+		}
 	}
 
 	private boolean validateServer(String server, String port, String password) {
+		if (port.isEmpty() || server.isEmpty() || password.isEmpty()) {
+			return false;
+		}
 		try {
 			InetAddress.getByName(server);
 			Integer.parseInt(port);
-		} catch (Exception e) {
+		} catch (UnknownHostException e) {
+			return false;
+		} catch (NumberFormatException e) {
 			return false;
 		}
 		return true;
