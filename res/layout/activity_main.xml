@@ -9,19 +9,6 @@
     tools:context=".MainActivity" >
 
     <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="@string/serverHint"
-        android:inputType="text" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,6 +47,14 @@
         android:text="@string/mainTitle"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText5"
+        android:layout_alignRight="@+id/editText5"
+        android:layout_below="@+id/textView2" />
+    
     <EditText
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
@@ -70,5 +65,17 @@
         android:ems="10"
         android:hint="@string/passHint"
         android:inputType="textPassword" />
+
+
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/serverHint"
+        android:inputType="text" />
 
 </RelativeLayout>

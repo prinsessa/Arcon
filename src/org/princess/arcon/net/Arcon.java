@@ -6,6 +6,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+import org.princess.arcon.net.packet.ArconGame;
+import org.princess.arcon.net.packet.ArconPacket;
+
 /**
  * 
  * Simple example class for sending rcon commands to an Enemy Territory server.
@@ -19,15 +22,9 @@ public class Arcon {
 	private DatagramSocket socket;
 	private InetAddress address;
 	private int port;
+	private ArconPacket aPacket;
 	private final int TIMEOUT = 5000;
 	private final int PACKETSIZE = 256; // we don't need larger packets
-
-	/* command stuff
-	 * 
-	 * In sv_main.c of the Enemy Territory SC it says 
-	 * "A connectionless packet has four leading 0xff characters to distinguish it from a game channel."
-	 * */
-	private final String PREFIX = "ÿÿÿÿrcon";
 	private final String PREFIX_PRINT = "ÿÿÿÿprint";
 	private String rconPassword;
 
@@ -35,14 +32,21 @@ public class Arcon {
 	public Arcon(String address, int port, String rconPassword) {
 		try {
 			socket = new DatagramSocket();
+			socket.setSoTimeout(TIMEOUT);
+
 			this.address = InetAddress.getByName(address);
 			this.port = port;
 			this.rconPassword = rconPassword;
 
-			socket.setSoTimeout(TIMEOUT);
+			initPacket();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void initPacket() {
+		aPacket = new ArconPacket(ArconGame.EnemyTerritory, address, port,
+				rconPassword);
 	}
 
 	public void sendCommands(String... commands) throws IOException,
@@ -54,14 +58,7 @@ public class Arcon {
 
 	public void sendCommand(String command) throws IOException,
 			InterruptedException {
-		String message = String.format("%s %s %s", PREFIX, rconPassword,
-				command);
-		// must be set explicitly to "ISO-8859-1" or we'll run into problems sending or receiving...
-		byte[] buffer = message.getBytes("ISO-8859-1");
-		DatagramPacket packet = new DatagramPacket(buffer, buffer.length,
-				address, port);
-
-		socket.send(packet);
+		socket.send(aPacket.buildPacket(command));
 		log(String.format("Command \"%s\" sent!", command));
 	}
 
@@ -104,7 +101,8 @@ public class Arcon {
 
 		String received = "";
 		try {
-			// must be set explicitly to "ISO-8859-1" or we'll run into problems sending or receiving...
+			// must be set explicitly to "ISO-8859-1" or we'll run into problems
+			// sending or receiving...
 			received = new String(packet.getData(), "ISO-8859-1");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="games_array">
+        <item>Wolfenstein: Enemy Territory</item>
+    </string-array>
 
     <string name="app_name">Arcon</string>
     <string name="action_settings">Settings</string>

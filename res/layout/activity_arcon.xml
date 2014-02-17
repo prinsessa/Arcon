@@ -48,7 +48,7 @@
         android:linksClickable="false"
         android:longClickable="false"
         android:scrollHorizontally="true"
-        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical"
         android:selectAllOnFocus="false"

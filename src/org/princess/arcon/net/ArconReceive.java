@@ -29,7 +29,7 @@ public class ArconReceive extends AsyncTask<Void, String, Void> {
 		this.socket = socket;
 	}
 
-	// let our background task run indefinitely until our socket is closed 
+	// let our background task run indefinitely until our socket is closed
 	// (after socket.receive() fails blocking on a closed socket)
 	private void run() {
 		while (!socket.isClosed()) {
@@ -49,7 +49,8 @@ public class ArconReceive extends AsyncTask<Void, String, Void> {
 			socket.receive(packet);
 			String received = "";
 			try {
-				// must be set explicitly to "ISO-8859-1" or we'll run into problems sending or receiving...
+				// must be set explicitly to "ISO-8859-1" or we'll run into
+				// problems sending or receiving...
 				received = new String(packet.getData(), "ISO-8859-1");
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
